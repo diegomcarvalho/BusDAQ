@@ -1,0 +1,41 @@
+Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+Initiating communications.
+Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+Initiating communications.
+Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+Initiating communications.
+Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+Initiating communications.
+Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+Initiating communications.
+Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+Initiating communications.
+Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+Initiating communications.
+Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:11:12,021 root         INFO     Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+2015-07-28 11:11:12,024 root         INFO     Initiating communications.
+2015-07-28 11:11:12,434 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:12:12,984 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:13:13,940 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:14:14,533 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:14:51,955 root         INFO     Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+2015-07-28 11:16:00,250 root         INFO     Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+2015-07-28 11:16:00,252 root         INFO     Communication Manager __init__(RioBrtDataLogger,True)
+2015-07-28 11:16:00,253 root         INFO     Initiating communications.
+2015-07-28 11:16:00,599 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:17:01,554 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:18:02,544 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:19:03,029 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:20:03,520 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:21:04,206 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:21:39,251 root         INFO     Initiating a new process (RioBrtDataLogger,http://dadosabertos.rio.rj.gov.br/apitransporte/apresentacao/csv/brt.cfm)
+2015-07-28 11:21:39,253 root         INFO     Communication Manager __init__(RioBrtDataLogger,True)
+2015-07-28 11:21:39,253 root         INFO     Initiating communications.
+2015-07-28 11:21:39,660 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
+2015-07-28 11:22:39,792 requests.packages.urllib3.connectionpool INFO     Starting new HTTP connection (1): dadosabertos.rio.rj.gov.br
