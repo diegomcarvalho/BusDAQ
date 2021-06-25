@@ -32,12 +32,12 @@ Created on Tue Jul 21 13:45:25 2015
 @author: d.carvalho@ieee.org
 """
 
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 import logging.handlers
 import sys
 import time
 
-import StringIO as stio
+from io import StringIO
 import moblab.connections as cmm
 import moblab.tools as t
 import pandas as pd
@@ -45,9 +45,9 @@ import requests as rq
 import requests.exceptions as rqe
 
 
-def main( config_file ):
+def main(config_file):
 
-    try:    
+    try:
         parser = SafeConfigParser()
         parser.read(config_file)
 
@@ -57,30 +57,30 @@ def main( config_file ):
         data_logger_sleep = float(parser.get('Logger', 'sleeptime'))
         data_logger_logfile = parser.get('Logger', 'logfile')
     except:
-        print 'Cannot parse the config file ' + config_file + '. Exiting.'
-    
+        print(f'Cannot parse the config file {config_file}. Exiting.')
+
     my_logger = t.get_logger(data_logger_logfile)
 
     my_logger.info('Initiating a new process (%s,%s)' % (data_logger_name,
-                                                         data_logger_url))  
+                                                         data_logger_url))
 
     cm = cmm.CommunicationManager(data_logger_name)
 
-    cm.create_datum('TIMESTAMP',retain=True)
+    cm.create_datum('TIMESTAMP', retain=True)
     cm.create_datum('DATASTREAM')
     cm.create_datum('AVGSPEED')
-    cm.create_datum('COUNT')    
+    cm.create_datum('COUNT')
 
     with cm:
 
-        my_logger.info('Initiating communications.')  
+        my_logger.info('Initiating communications.')
 
         cm.start()
 
         while True:
 
             now = t.now()
-            filename = t.date_to_file_name(now,"csv")
+            filename = t.date_to_file_name(now, "csv")
 
             try:
                 r = rq.get(data_logger_url, timeout=10.0)
@@ -95,8 +95,8 @@ def main( config_file ):
             except rqe.Timeout as rqes:
                 my_logger.error('Timeout - the server timedout')
                 my_logger.error(rqes)
-            except rqe.TooManyRedirects as rqes:      
-                my_logger.error('TooManyRedirects - http_server error config')          
+            except rqe.TooManyRedirects as rqes:
+                my_logger.error('TooManyRedirects - http_server error config')
                 my_logger.error(rqes)
             except:
                 e = sys.exc_info()[0]
@@ -104,22 +104,23 @@ def main( config_file ):
                 my_logger.error(e)
             else:
                 fstr = r.content
-                fl = stio.StringIO(fstr)
+                fl = StringIO.StringIO(fstr)
                 df = pd.read_csv(fl)
 
                 my_logger.debug('cm.publish_datum TIMESTAMP')
                 cm.publish_datum('TIMESTAMP', str(now))
                 cm.publish_datum('DATASTREAM', fstr)
-    
+
                 df.to_csv(data_logger_directory + "/" + filename)
-    
+
                 cm.publish_datum('AVGSPEED', str(df['velocidade'].mean()))
                 cm.publish_datum('COUNT', str(df['velocidade'].count()))
-                
+
             time.sleep(data_logger_sleep)
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print 'DataLogger <configuration.ini>'
+        print('DataLogger <configuration.ini>')
         sys.exit(0)
     main(sys.argv[1])
