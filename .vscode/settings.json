@@ -1,9 +1,28 @@
 {
 	"cSpell.words": [
+		"clientid",
 		"fstr",
 		"linha",
+		"mosquitto",
+		"mqtt",
+		"mqttc",
+		"nolink",
 		"nstreams",
+		"paho",
 		"rqes",
 		"velocidade"
+	],
+	"spellright.language": [
+		"pt",
+		"en"
+	],
+	"spellright.documentTypes": [
+		"markdown",
+		"latex",
+		"plaintext"
+	],
+	"cSpell.ignoreWords": [
+		"mqtt",
+		"paho"
 	]
 }

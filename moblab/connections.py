@@ -34,7 +34,7 @@ Created on Tue Jul 21 13:45:25 2015
 
 import os
 import logging
-import urlparse
+import urllib.parse as urlparse
 import paho.mqtt.client as mqtt
 
 from .patterns import Bag, Borg
@@ -45,9 +45,9 @@ from .patterns import Bag, Borg
 #
 # CM_BASE_PROC = "MOBLAB/PROC/"
 #    ProcessServer is in charge of this sub-tree and it creates a leaf for every
-#    process in the system.  
+#    process in the system.
 # CM_BASE_STAT = "MOBLAB/STAT/"
-#    Every process creates a leaf (with the process name) and publishes its 
+#    Every process creates a leaf (with the process name) and publishes its
 #    status.
 # CM_BASE_DATA = "MOBLAB/DATA/"
 #    Branch reserved for all published data
@@ -71,17 +71,21 @@ CM_ST_ONLINE = "ONLINE"
 #
 # Private support functions
 #
-def _proc_str_add(a,b):
+def _proc_str_add(a, b):
     return CM_BASE_TREE + a + CM_BASE_PROC + b
 
-def _stat_str_add(a,b):
+
+def _stat_str_add(a, b):
     return CM_BASE_TREE + a + CM_BASE_STAT + b
 
-def _data_str_add(a,b):
+
+def _data_str_add(a, b):
     return CM_BASE_TREE + a + CM_BASE_DATA + b
 
-def _cmd_str_add(a,b):
+
+def _cmd_str_add(a, b):
     return CM_BASE_TREE + a + CM_BASE_CMD + b
+
 
 def _get_broker():
     url_str = os.environ.get('MOBLAB_MQTT_SERVER_URL',
@@ -92,7 +96,7 @@ def _get_broker():
 class CommunicationManager(Borg):
     """ Communication Manager Class
     """
-       
+
     def __init__(self, clientid, async=True):
         """ __init__(clientid, async)
         clientid - process name on the communication tree. It should be unique
@@ -108,9 +112,9 @@ class CommunicationManager(Borg):
         self._mqttc.on_message = self._on_message
         self._url = _get_broker()
         if self._url.username:
-            self.mqttc.username_pw_set(self._url.username,self._url.password)
+            self.mqttc.username_pw_set(self._url.username, self._url.password)
 
-        logging.info('Communication Manager __init__(%s,%r)' % (clientid,async))
+        logging.info('Communication Manager __init__(%s,%r)' % (clientid, async))
         return
 
     def __enter__(self):
@@ -132,14 +136,15 @@ class CommunicationManager(Borg):
         self._mqttc.disconnect()
 
         return
-    
+
     def _on_connect(self, mqttc, obj, flags, rc):
         """ __on_connect() - Communication Manager
         """
         if self._commands:
             for key, bag in self._commands.items():
                 self._mqttc.subscribe(bag.topic)
-                logging.debug('CommunicationManager _on_connect command (%s)' % (key))
+                logging.debug(
+                    'CommunicationManager _on_connect command (%s)' % (key))
 
         return
 
@@ -148,39 +153,40 @@ class CommunicationManager(Borg):
         """
         if msg.topic in self._commands:
             bag = self._commands[msg.topic]
-            bag.function(bag.name,bag.userdata,msg.payload)
+            bag.function(bag.name, bag.userdata, msg.payload)
         return
 
     def create_datum(self, name, qos=0, retain=False):
         topic = _data_str_add(self._clientid, name)
-        self._topics[name] = Bag(topic=topic,qos=qos,retain=retain)
+        self._topics[name] = Bag(topic=topic, qos=qos, retain=retain)
         return
 
     def subscribe(self, server, name, func, userdata=None, qos=0):
         t = _data_str_add(server, name)
-        dat = Bag(topic=(t,qos),name=name, function=func,userdata=userdata)
+        dat = Bag(topic=(t, qos), name=name, function=func, userdata=userdata)
         self._commands[t] = dat
         self._mqttc.subscribe(dat.topic)
         return
-    
+
     def create_command(self, name, func, userdata=None, qos=0):
         t = _cmd_str_add(self._clientid, name)
-        dat = Bag(topic=(t,qos),name=name, function=func,userdata=userdata)
+        dat = Bag(topic=(t, qos), name=name, function=func, userdata=userdata)
         self._commands[t] = dat
         self._mqttc.subscribe(dat.topic)
         return
-    
+
     def send_command(self, server, cmd, payload, qos=0):
         topic = _cmd_str_add(server, cmd)
         self._mqttc.publish(topic, payload, qos)
-        logging.debug('CommunicationManager send_command (%s,%s)' % (server,cmd))
+        logging.debug('CommunicationManager send_command (%s,%s)' %
+                      (server, cmd))
         return
-            
+
     def publish_datum(self, name, payload):
-        bag= self._topics[name]
-        self._mqttc.publish(bag.topic, payload, qos=bag.qos,retain=bag.retain)
+        bag = self._topics[name]
+        self._mqttc.publish(bag.topic, payload, qos=bag.qos, retain=bag.retain)
         return
-    
+
     def start(self):
         self._mqttc.loop_start()
         return
