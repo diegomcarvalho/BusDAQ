@@ -97,14 +97,15 @@ class CommunicationManager(Borg):
     """ Communication Manager Class
     """
 
-    def __init__(self, clientid, async=True):
-        """ __init__(clientid, async)
+    def __init__(self, clientid, async_mode=True):
+        """ __init__(clientid, async_mode)
         clientid - process name on the communication tree. It should be unique
-        async - select if the CM runs multithreaded (True) or with user pooling
+        async_mode - select if the CM runs multithreaded (True) or with user pooling
         """
+
         Borg.__init__(self)
         self._clientid = clientid
-        self._async = async
+        self._async_mode = async_mode
         self._commands = {}
         self._topics = {}
         self._mqttc = mqtt.Client(clientid)
@@ -112,16 +113,17 @@ class CommunicationManager(Borg):
         self._mqttc.on_message = self._on_message
         self._url = _get_broker()
         if self._url.username:
-            self.mqttc.username_pw_set(self._url.username, self._url.password)
+            self._mqttc.username_pw_set(self._url.username, self._url.password)
 
-        logging.info('Communication Manager __init__(%s,%r)' % (clientid, async))
+        logging.info('Communication Manager __init__(%s,%r)' %
+                     (clientid, async_mode))
         return
 
     def __enter__(self):
         """ ___enter___() - Communication Manager
         Connect with MQTT server
         """
-        if self._async:
+        if self._async_mode:
             self._mqttc.connect_async(self._url.hostname, self._url.port)
         else:
             self._mqttc.connect(self._url.hostname, self._url.port)
@@ -130,7 +132,7 @@ class CommunicationManager(Borg):
     def __exit__(self, typeExc, value, traceback):
         """ ___exit___() - Communication Manager
         """
-        if self._async:
+        if self._async_mode:
             self._mqttc.loop_stop()
 
         self._mqttc.disconnect()

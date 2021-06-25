@@ -1,0 +1,33 @@
+2021-06-25 10:18:25,168 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:19:56,259 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:19:56,260 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 10:20:38,829 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:20:38,830 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 10:20:38,830 root         INFO     Initiating communications.
+2021-06-25 10:22:15,356 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:22:15,357 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 10:22:15,357 root         INFO     Initiating communications.
+2021-06-25 10:23:07,201 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:23:07,202 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 10:23:07,202 root         INFO     Initiating communications.
+2021-06-25 10:23:28,617 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:23:28,618 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 10:23:28,619 root         INFO     Initiating communications.
+2021-06-25 10:25:08,924 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:25:08,925 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 10:25:08,925 root         INFO     Initiating communications.
+2021-06-25 10:25:16,459 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 10:25:16,459 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 10:25:16,459 root         INFO     Initiating communications.
+2021-06-25 12:03:33,177 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 12:03:33,178 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 12:03:33,178 root         INFO     Initiating communications.
+2021-06-25 12:04:14,876 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 12:04:14,877 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 12:04:14,877 root         INFO     Initiating communications.
+2021-06-25 13:20:50,937 root         ERROR    Connection Error - URL fetching error
+2021-06-25 13:20:50,941 root         ERROR    HTTPConnectionPool(host='dadosabertos.rio.rj.gov.br', port=80): Read timed out.
+2021-06-25 14:46:18,869 root         ERROR    Connection Error - URL fetching error
+2021-06-25 14:46:18,872 root         ERROR    ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+2021-06-25 15:26:45,605 root         ERROR    Connection Error - URL fetching error
+2021-06-25 15:26:45,606 root         ERROR    HTTPConnectionPool(host='dadosabertos.rio.rj.gov.br', port=80): Max retries exceeded with url: /apiTransporte/apresentacao/csv/onibus.cfm (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x122e88460>, 'Connection to dadosabertos.rio.rj.gov.br timed out. (connect timeout=10.0)'))

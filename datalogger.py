@@ -36,8 +36,8 @@ from configparser import SafeConfigParser
 import logging.handlers
 import sys
 import time
+import io
 
-from io import StringIO
 import moblab.connections as cmm
 import moblab.tools as t
 import pandas as pd
@@ -104,7 +104,7 @@ def main(config_file):
                 my_logger.error(e)
             else:
                 fstr = r.content
-                fl = StringIO.StringIO(fstr)
+                fl = io.StringIO(fstr.decode('ascii'))
                 df = pd.read_csv(fl)
 
                 my_logger.debug('cm.publish_datum TIMESTAMP')
