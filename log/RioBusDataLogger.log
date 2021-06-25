@@ -31,3 +31,17 @@
 2021-06-25 14:46:18,872 root         ERROR    ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
 2021-06-25 15:26:45,605 root         ERROR    Connection Error - URL fetching error
 2021-06-25 15:26:45,606 root         ERROR    HTTPConnectionPool(host='dadosabertos.rio.rj.gov.br', port=80): Max retries exceeded with url: /apiTransporte/apresentacao/csv/onibus.cfm (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x122e88460>, 'Connection to dadosabertos.rio.rj.gov.br timed out. (connect timeout=10.0)'))
+2021-06-25 15:56:09,319 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 15:56:09,320 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 15:56:09,320 root         INFO     Initiating communications.
+2021-06-25 15:56:45,261 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 15:56:45,262 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 15:56:45,262 root         INFO     Initiating communications.
+2021-06-25 15:59:29,476 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 15:59:29,476 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 15:59:29,476 root         INFO     Initiating communications.
+2021-06-25 16:00:42,204 root         INFO     Initiating a new process (RioBusDataLogger,http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm)
+2021-06-25 16:00:42,205 root         INFO     Communication Manager __init__(RioBusDataLogger,True)
+2021-06-25 16:00:42,205 root         INFO     Initiating communications.
+2021-06-25 16:09:53,934 root         ERROR    Connection Error - URL fetching error
+2021-06-25 16:09:53,935 root         ERROR    HTTPConnectionPool(host='dadosabertos.rio.rj.gov.br', port=80): Max retries exceeded with url: /apiTransporte/apresentacao/csv/onibus.cfm (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x122de23a0>, 'Connection to dadosabertos.rio.rj.gov.br timed out. (connect timeout=10.0)'))
